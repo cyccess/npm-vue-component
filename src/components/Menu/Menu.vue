@@ -31,7 +31,7 @@
 <script>
 
   export default {
-    name: "vue-menu",
+    name: "x-menu",
     components:{
 
     },

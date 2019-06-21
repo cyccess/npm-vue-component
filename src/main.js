@@ -5,7 +5,12 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 Vue.use(Antd);
 
+
+import myComponents from '../components/index'
+Vue.use(myComponents);
+
+
 new Vue({
   el: '#app',
   render: h => h(App)
-})
+});

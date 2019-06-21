@@ -2,19 +2,23 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  // entry: './src/main.js',
-  entry: './src/components/index.js',
+  entry: './src/main.js',
+  // entry: './src/components/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'cyccui.js',
-    // filename:'build.js',
+    // filename: 'cyccui.js',
+    filename: 'build.js',
     library: 'cyccui',
     libraryTarget: "umd",
     umdNamedDefine: true
   },
   module: {
     rules: [
+      {
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      },
       {
         test: /\.less$/,
         use: [
@@ -85,25 +89,34 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
     ]
   },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    },
-    extensions: ['*', '.js', '.vue', '.json']
-  },
+  resolve:
+    {
+      alias: {
+        'vue$':
+          'vue/dist/vue.esm.js'
+      }
+      ,
+      extensions: ['*', '.js', '.vue', '.json']
+    }
+  ,
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
-    overlay: true
-  },
+    noInfo:
+      true,
+    overlay:
+      true
+  }
+  ,
   performance: {
     hints: false
-  },
+  }
+  ,
   devtool: '#eval-source-map'
 }
+
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
@@ -122,6 +135,6 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
   ])
 }

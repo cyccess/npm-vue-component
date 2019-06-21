@@ -1,10 +1,10 @@
 <template>
-  <div>测试发布一个组件,{{msg}}</div>
+  <div>layout</div>
 </template>
 
 <script>
   export default {
-    name: "vue-layout",
+    name: "x-layout",
     props: ['msg']
   }
 </script>
